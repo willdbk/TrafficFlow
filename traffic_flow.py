@@ -2,11 +2,12 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
+import sys
 
 # The traffic flow class allows us to model traffic flow. It uses the method
 # of lines along with a High-resolution shock-capturing schemes (HRSC).
 class TrafficFlow:
-    # Computes the initial rho values based on the input conditions.
+    #
     def __init__(self, rho_bar, delta_rho, N, x_center = 0.5, \
             lam = 0.1, rho_max = 1, u_max = 1):
         self.rho_bar = rho_bar
@@ -23,19 +24,28 @@ class TrafficFlow:
             delta_rho*math.exp(-(((self.x_vec[i] - x_center)/lam)**2))
 
     # Fills the rho matrix using the basic Method of Lines.
-    def fill_rho_mat(self, t, M):
-        self.M = M
-        self.t_vec = np.linspace(0, t, M)
+    def fill_rho_mat(self, max_t, time_steps):
+        self.time_steps = time_steps
+        self.delta_t = max_t/(time_steps - 1)
+        self.t_vec = np.linspace(0, max_t, time_steps)
         self.rho_mat = odeint(self.derivs, self.rho_init_vec, self.t_vec)
 
     # Fills the rho matrix using the Method of Lines along with the
     # High-resolution shock capturing (HRSC) scheme.
-    def fill_rho_mat_HRSC(self, t, M):
-        self.M = M
-        self.t_vec = np.linspace(0, t, M)
-        integral = odeint(self.derivs_HRSC, self.rho_init_vec, \
+    def fill_rho_mat_HRSC(self, max_t, time_steps):
+        self.time_steps = time_steps
+        self.delta_t = max_t/(time_steps - 1)
+        self.t_vec = np.linspace(0, max_t, time_steps)
+        self.rho_mat = odeint(self.derivs_HRSC, self.rho_init_vec, \
             self.t_vec, mxstep=5000000)
-        self.rho_mat = integral
+
+    # Computes rho derivatives without HRSC, using center difference method.
+    def derivs(self, rho_vec, t):
+        rho_vec_dt = np.zeros(self.N)
+        for i in range(self.N):
+            rho_vec_dt[i] = -1/(2*self.delta_x) * \
+                (self.f(rho_vec[self.right(i)]) - self.f(rho_vec[self.left(i)]))
+        return rho_vec_dt
 
     # Computes the derivatives of rho using the HRSC method.
     def derivs_HRSC(self, rho_vec, t):
@@ -71,14 +81,6 @@ class TrafficFlow:
             f_vec_half[self.left(i)])
         return rho_vec_dt
 
-    # Computes rho derivs without HRSC, using center difference method.
-    def derivs(self, rho_vec, t):
-        rho_vec_dt = np.zeros(self.N)
-        for i in range(self.N):
-            rho_vec_dt[i] = -1/(2*self.delta_x) * \
-                (self.f(rho_vec[self.right(i)]) - self.f(rho_vec[self.left(i)]))
-        return rho_vec_dt
-
     # This function returns the anti-derivative of the characteristic speed.
     def f(self, rho):
         return rho*self.u_max*(1-rho/self.rho_max)
@@ -105,10 +107,10 @@ class TrafficFlow:
     # This creates a plot of rho as a function of x for various t values.
     def graph_rho(self, num_plots):
         for i in range(len(self.t_vec)):
-            if i%int(self.M/num_plots) == 0:
+            if i%int(self.time_steps/num_plots) == 0:
                 plt.plot(self.x_vec, self.rho_mat[i], label="t=" + \
                     str(self.t_vec[i]))
-        plt.xlabel(r'x')
+        plt.xlabel(r'$x$')
         plt.ylabel(r'$\rho$')
         title = r'Plot of $\rho$ vs. $x$ for $\bar{\rho}=$' + str(self.rho_bar) \
             + r' and $\delta\rho=$' + str(self.delta_rho)
@@ -116,26 +118,90 @@ class TrafficFlow:
         plt.legend()
         plt.show()
 
+    # Returns the analytic expectation for the characteristic speed as well as
+    # Returns the analytic expectation for the characteristic speed as well as the numerical calculation for the characteristic speed.the numerical calculation for the characteristic speed.
     def get_characteristic_speed(self):
-        analytic_speed = self.u_max*(1-(2*self.rho_bar)/(self.rho_max))
-        index_of_last_max = np.where(self.rho_mat[-1] == np.amax(self.rho_mat[-1]))
-        index_of_first_max = np.where(self.rho_mat[0] == np.amax(self.rho_mat[0]))
-        change_in_x = self.x_vec[index_of_last_max] - self.x_vec[index_of_first_max]
-        change_in_t = self.t_vec[-1] - self.t_vec[0]
-        num_speed = change_in_x / change_in_t
+        analytic_speed = -self.u_max*(1-(2*self.rho_bar)/(self.rho_max))*np.sign(self.delta_rho)
+        total_change_in_x = 0
+        total_change_in_t = 0
+        for i in range(len(self.rho_mat) - 1):
+            curr_max = np.where(self.rho_mat[i] == np.amax(self.rho_mat[i]))[0][0]
+            next_max = np.where(self.rho_mat[i+1] == np.amax(self.rho_mat[i+1]))[0][0]
+            if np.sign(self.delta_rho) > 0:
+                # didn't wrap
+                if self.x_vec[next_max] <= self.x_vec[curr_max]:
+                    total_change_in_x += self.x_vec[next_max] - self.x_vec[curr_max]
+                # did wrap
+                else:
+                    total_change_in_x += self.x_vec[next_max] - (1 + self.x_vec[curr_max])
+            else:
+                # didn't wrap
+                if self.x_vec[next_max] >= self.x_vec[curr_max]:
+                    total_change_in_x += self.x_vec[next_max] - self.x_vec[curr_max]
+                # did wrap
+                else:
+                    total_change_in_x += (1 + self.x_vec[next_max]) - self.x_vec[curr_max]
+
+            total_change_in_t += self.t_vec[i+1] - self.t_vec[i]
+        num_speed = total_change_in_x / total_change_in_t
         return analytic_speed, num_speed
 
+    # Models the position of a number of cars based on the computed row values
+    # for a particular traffic flow.
+    def model_cars(self, num_cars, pos_max):
+        # each row is a particular car, each column is a time step
+        car_pos_mat = np.zeros((num_cars, self.time_steps))
+        init_pos = np.linspace(0.0, pos_max, num_cars)
+
+        for i in range(num_cars):
+            car_pos_mat[i][0] = init_pos[i]
+            u_vec = np.zeros(self.time_steps - 1)
+            for j in range(0, self.time_steps - 1):
+                car_pos = car_pos_mat[i][j]
+                x_index = int(car_pos*(self.N-1))
+                rho = self.rho_mat[j][x_index]
+                u_vec[j] = self.u_max*(1-(rho/self.rho_max))
+                pos = car_pos_mat[i][j] + u_vec[j]*self.delta_t
+                if pos >=1 :
+                    pos -= 1
+                car_pos_mat[i][j + 1] = pos
+
+        self.car_pos_mat = car_pos_mat
+
+    # Generates an t vs. x plot of the position of the cars as created in the
+    # model cars method.
+    def graph_cars(self):
+        for i in range(len(self.car_pos_mat)):
+            plt.plot(self.car_pos_mat[i], self.t_vec, label = "car " +  str(i))
+        plt.legend()
+        plt.xlabel(r'$x$')
+        plt.ylabel(r'$t$')
+        title = r'Plot of $t$ vs. $x$ for $\bar{\rho}=$' + str(self.rho_bar) \
+            + r' and $\delta\rho=$' + str(self.delta_rho)
+        plt.title(title)
+        plt.show()
 
 
-# Creates an instance of the TrafficFlow class, fills the rho matrix and graphs it.
+# Creates an instance of the TrafficFlow class, fills the rho matrix and graphs
+# values of rho for different times t > 0. Computes the analytical and
+# numerical characteristic speed. Creates a model of cars moving in this
+# traffic flow and graphs the motion of these cars.
 def main():
-    flow = TrafficFlow(0.5, 0.1, 99)
-    t = 10
-    flow.fill_rho_mat_HRSC(t, t + 1)
+    print(sys.argv)
+    rho_bar = 0.5 if len(sys.argv) <= 1 else float(sys.argv[1])
+    delta_rho = 0.1 if len(sys.argv) <= 2 else float(sys.argv[2])
+    N = 99 if len(sys.argv) <= 3 else int(sys.argv[3])
+    max_t = 1 if len(sys.argv) <= 4 else float(sys.argv[4])
+    timesteps = 101 if len(sys.argv) <= 5 else float(sys.argv[5])
+
+    flow = TrafficFlow(rho_bar, delta_rho, N)
+    flow.fill_rho_mat_HRSC(max_t, timesteps)
     analytic_speed, num_speed = flow.get_characteristic_speed()
     print("analytic_speed: " + str(analytic_speed))
     print("num_speed: " + str(num_speed))
     flow.graph_rho(5)
+    flow.model_cars(5, 0.3)
+    flow.graph_cars()
 
 
 if __name__ == "__main__":
