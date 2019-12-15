@@ -3,8 +3,8 @@
 %%Title: Enscript Output
 %%For: WIlliam deBruynKops
 %%Creator: GNU Enscript 1.6.6
-%%CreationDate: Sun Dec  8 16:14:57 2019
-%%Orientation: Landscape
+%%CreationDate: Sun Dec 15 17:10:44 2019
+%%Orientation: Portrait
 %%Pages: (atend)
 %%DocumentMedia: A4 595 842 0 () ()
 %%DocumentNeededResources: (atend)
@@ -483,937 +483,1732 @@ gs_languagelevel 1 gt {
   grestore
 } def
 %%EndResource
-/d_page_w 794 def
-/d_page_h 547 def
+/d_page_w 547 def
+/d_page_h 794 def
 /d_header_x 0 def
-/d_header_y 511 def
-/d_header_w 794 def
+/d_header_y 758 def
+/d_header_w 547 def
 /d_header_h 36 def
 /d_footer_x 0 def
 /d_footer_y 0 def
-/d_footer_w 794 def
+/d_footer_w 547 def
 /d_footer_h 0 def
-/d_output_w 794 def
-/d_output_h 511 def
+/d_output_w 547 def
+/d_output_h 758 def
 /cols 1 def
 %%EndSetup
 %%Page: (1) 1
 %%BeginPageSetup
 _S
-90 rotate
-24 -571 translate
+24 24 translate
 /pagenum 1 def
 /fname (traffic_flow.py) def
 /fdir (.) def
 /ftail (traffic_flow.py) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (12/08/19) def
-/modtimestr (16:03:34) def
+/moddatestr (12/15/19) def
+/modtimestr (17:10:36) def
 /user_header_p false def
 /user_footer_p false def
 %%EndPageSetup
 do_header
-30 498 M (1:) s
+30 745 M (1:) s
 /Courier-Bold 10 10 SUF
-48 498 M
+48 745 M
 (import) s
 /F-gs-font 10 10 SF
-84 498 M
+84 745 M
 ( math) s
-30 487 M (2:) s
+30 734 M (2:) s
 /Courier-Bold 10 10 SUF
-48 487 M
+48 734 M
 (import) s
 /F-gs-font 10 10 SF
-84 487 M
+84 734 M
 ( numpy as np) s
-30 476 M (3:) s
+30 723 M (3:) s
 /Courier-Bold 10 10 SUF
-48 476 M
+48 723 M
 (import) s
 /F-gs-font 10 10 SF
-84 476 M
+84 723 M
 ( matplotlib.pyplot as plt) s
-30 465 M (4:) s
+30 712 M (4:) s
 /Courier-Bold 10 10 SUF
-48 465 M
+48 712 M
 (from) s
 /F-gs-font 10 10 SF
-72 465 M
+72 712 M
 ( scipy.integrate ) s
 /Courier-Bold 10 10 SUF
-174 465 M
+174 712 M
 (import) s
 /F-gs-font 10 10 SF
-210 465 M
+210 712 M
 ( odeint) s
-30 454 M (5:) s
-30 443 M (6:) s
+30 701 M (5:) s
+/Courier-Bold 10 10 SUF
+48 701 M
+(import) s
+/F-gs-font 10 10 SF
+84 701 M
+( sys) s
+30 690 M (6:) s
+30 679 M (7:) s
 /Courier-Oblique 10 10 SUF
-48 443 M
+48 679 M
 (# The traffic flow class allows us to model traffic flow. It uses the method) s
 /F-gs-font 10 10 SF
-30 432 M (7:) s
+30 668 M (8:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
 /Courier-Oblique 10 10 SUF
-48 432 M
+48 668 M
 (# of lines along with a High-resolution shock-capturing schemes \(HRSC\).) s
 /F-gs-font 10 10 SF
-30 421 M (8:) s
+30 657 M (9:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
 /Courier-Bold 10 10 SUF
-48 421 M
+48 657 M
 (class) s
 /F-gs-font 10 10 SF
-78 421 M
+78 657 M
 ( TrafficFlow:) s
-30 410 M (9:) s
-48 410 M
+24 646 M (10:) s
+48 646 M
 (    ) s
 /Courier-Oblique 10 10 SUF
-72 410 M
-(# Computes the initial rho values based on the input conditions.) s
+72 646 M
+(# Creates the rho init vector based on the initial conditions.) s
 /F-gs-font 10 10 SF
-24 399 M (10:) s
+24 635 M (11:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 399 M
+48 635 M
 (    ) s
 /Courier-Bold 10 10 SUF
-72 399 M
+72 635 M
 (def) s
 /F-gs-font 10 10 SF
-90 399 M
+90 635 M
 ( ) s
 /Courier-Bold 10 10 SUF
-96 399 M
+96 635 M
 (__init__) s
 /F-gs-font 10 10 SF
-144 399 M
+144 635 M
 (\(self, rho_bar, delta_rho, N, x_center = 0.5, \\) s
-24 388 M (11:) s
-48 388 M
-(    lam = 0.1, rho_max = 1, u_max = 1\):) s
-24 377 M (12:) s
-48 377 M
+24 624 M (12:) s
+48 624 M
+(            lam = 0.1, rho_max = 1, u_max = 1\):) s
+24 613 M (13:) s
+48 613 M
 (        self.rho_bar = rho_bar) s
-24 366 M (13:) s
-48 366 M
+24 602 M (14:) s
+48 602 M
 (        self.delta_rho = delta_rho) s
-24 355 M (14:) s
-48 355 M
+24 591 M (15:) s
+48 591 M
 (        self.u_max = u_max) s
-24 344 M (15:) s
-48 344 M
+24 580 M (16:) s
+48 580 M
+(        self.x_center = x_center) s
+24 569 M (17:) s
+48 569 M
 (        self.rho_max = rho_max) s
-24 333 M (16:) s
-48 333 M
+24 558 M (18:) s
+48 558 M
 (        self.delta_x = 1./N) s
-24 322 M (17:) s
-48 322 M
+24 547 M (19:) s
+48 547 M
 (        self.N = N) s
-24 311 M (18:) s
-48 311 M
+24 536 M (20:) s
+48 536 M
 (        self.rho_init_vec = np.zeros\(N\)) s
-24 300 M (19:) s
-48 300 M
+24 525 M (21:) s
+48 525 M
 (        self.x_vec = np.zeros\(N\)) s
-24 289 M (20:) s
-48 289 M
+24 514 M (22:) s
+48 514 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 289 M
+96 514 M
 (for) s
 /F-gs-font 10 10 SF
-114 289 M
+114 514 M
 ( i ) s
 /Courier-Bold 10 10 SUF
-132 289 M
+132 514 M
 (in) s
 /F-gs-font 10 10 SF
-144 289 M
+144 514 M
 ( range\(N\):) s
-24 278 M (21:) s
-48 278 M
+24 503 M (23:) s
+48 503 M
 (            self.x_vec[i] = \(i+0.5\)/N) s
-24 267 M (22:) s
-48 267 M
+24 492 M (24:) s
+48 492 M
 (            self.rho_init_vec[i] = rho_bar + \\) s
-24 256 M (23:) s
-48 256 M
-(            delta_rho*math.exp\(-\(\(self.x_vec[i] - x_center\)/lam\)**2\)) s
-24 245 M (24:) s
-24 234 M (25:) s
-48 234 M
+24 481 M (25:) s
+48 481 M
+(            delta_rho*math.exp\(-\(\(\(self.x_vec[i] - x_center\)/lam\)**2\)\)) s
+24 470 M (26:) s
+24 459 M (27:) s
+48 459 M
 (    ) s
 /Courier-Oblique 10 10 SUF
-72 234 M
+72 459 M
 (# Fills the rho matrix using the basic Method of Lines.) s
 /F-gs-font 10 10 SF
-24 223 M (26:) s
+24 448 M (28:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 223 M
+48 448 M
 (    ) s
 /Courier-Bold 10 10 SUF
-72 223 M
+72 448 M
 (def) s
 /F-gs-font 10 10 SF
-90 223 M
+90 448 M
 ( ) s
 /Courier-Bold 10 10 SUF
-96 223 M
+96 448 M
 (fill_rho_mat) s
 /F-gs-font 10 10 SF
-168 223 M
-(\(self, t, M\):) s
-24 212 M (27:) s
-48 212 M
-(        self.M = M) s
-24 201 M (28:) s
-48 201 M
-(        self.t_vec = np.linspace\(0, t, M\)) s
-24 190 M (29:) s
-48 190 M
+168 448 M
+(\(self, max_t, time_steps\):) s
+24 437 M (29:) s
+48 437 M
+(        self.time_steps = time_steps) s
+24 426 M (30:) s
+48 426 M
+(        self.delta_t = max_t/\(time_steps - 1\)) s
+24 415 M (31:) s
+48 415 M
+(        self.t_vec = np.linspace\(0, max_t, time_steps\)) s
+24 404 M (32:) s
+48 404 M
 (        self.rho_mat = odeint\(self.derivs, self.rho_init_vec, self.t_vec\)) s
-24 179 M (30:) s
-24 168 M (31:) s
-48 168 M
+24 393 M (33:) s
+24 382 M (34:) s
+48 382 M
 (    ) s
 /Courier-Oblique 10 10 SUF
-72 168 M
+72 382 M
 (# Fills the rho matrix using the Method of Lines along with the) s
 /F-gs-font 10 10 SF
-24 157 M (32:) s
+24 371 M (35:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 157 M
+48 371 M
 (    ) s
 /Courier-Oblique 10 10 SUF
-72 157 M
+72 371 M
 (# High-resolution shock capturing \(HRSC\) scheme.) s
 /F-gs-font 10 10 SF
-24 146 M (33:) s
+24 360 M (36:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 146 M
+48 360 M
 (    ) s
 /Courier-Bold 10 10 SUF
-72 146 M
+72 360 M
 (def) s
 /F-gs-font 10 10 SF
-90 146 M
+90 360 M
 ( ) s
 /Courier-Bold 10 10 SUF
-96 146 M
+96 360 M
 (fill_rho_mat_HRSC) s
 /F-gs-font 10 10 SF
-198 146 M
-(\(self, t, M\):) s
-24 135 M (34:) s
-48 135 M
-(        self.M = M) s
-24 124 M (35:) s
-48 124 M
-(        self.t_vec = np.linspace\(0, t, M\)) s
-24 113 M (36:) s
-48 113 M
-(        integral = odeint\(self.derivs_HRSC, self.rho_init_vec, \\) s
-24 102 M (37:) s
-48 102 M
-(        self.t_vec, full_output = 1\)) s
-24 91 M (38:) s
-48 91 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 91 M
-(print) s
-/F-gs-font 10 10 SF
-126 91 M
-(\(integral[1]\)) s
-24 80 M (39:) s
-48 80 M
-(        self.rho_mat = integral[0]) s
-24 69 M (40:) s
-24 58 M (41:) s
-48 58 M
+198 360 M
+(\(self, max_t, time_steps\):) s
+24 349 M (37:) s
+48 349 M
+(        self.time_steps = time_steps) s
+24 338 M (38:) s
+48 338 M
+(        self.delta_t = max_t/\(time_steps - 1\)) s
+24 327 M (39:) s
+48 327 M
+(        self.t_vec = np.linspace\(0, max_t, time_steps\)) s
+24 316 M (40:) s
+48 316 M
+(        self.rho_mat = odeint\(self.derivs_HRSC, self.rho_init_vec, \\) s
+24 305 M (41:) s
+48 305 M
+(            self.t_vec, mxstep=5000000\)) s
+24 294 M (42:) s
+24 283 M (43:) s
+48 283 M
 (    ) s
 /Courier-Oblique 10 10 SUF
-72 58 M
-(# Computes the derivatives of rho using the HRSC method.) s
+72 283 M
+(# Computes rho derivatives without HRSC, using center difference method.) s
 /F-gs-font 10 10 SF
-24 47 M (42:) s
+24 272 M (44:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 47 M
+48 272 M
 (    ) s
 /Courier-Bold 10 10 SUF
-72 47 M
+72 272 M
 (def) s
 /F-gs-font 10 10 SF
-90 47 M
+90 272 M
 ( ) s
 /Courier-Bold 10 10 SUF
-96 47 M
+96 272 M
+(derivs) s
+/F-gs-font 10 10 SF
+132 272 M
+(\(self, rho_vec, t\):) s
+24 261 M (45:) s
+48 261 M
+(        rho_vec_dt = np.zeros\(self.N\)) s
+24 250 M (46:) s
+48 250 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 250 M
+(for) s
+/F-gs-font 10 10 SF
+114 250 M
+( i ) s
+/Courier-Bold 10 10 SUF
+132 250 M
+(in) s
+/F-gs-font 10 10 SF
+144 250 M
+( range\(self.N\):) s
+24 239 M (47:) s
+48 239 M
+(            rho_vec_dt[i] = -1/\(2*self.delta_x\) * \\) s
+24 228 M (48:) s
+48 228 M
+(                \(self.f\(rho_vec[self.right\(i\)]\) - self.f\(rho_vec[self.left\(i\)]\)\)) s
+24 217 M (49:) s
+48 217 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 217 M
+(return) s
+/F-gs-font 10 10 SF
+132 217 M
+( rho_vec_dt) s
+24 206 M (50:) s
+24 195 M (51:) s
+48 195 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 195 M
+(# Computes the derivatives of rho using the HRSC method.) s
+/F-gs-font 10 10 SF
+24 184 M (52:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 184 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 184 M
+(def) s
+/F-gs-font 10 10 SF
+90 184 M
+( ) s
+/Courier-Bold 10 10 SUF
+96 184 M
 (derivs_HRSC) s
 /F-gs-font 10 10 SF
-162 47 M
+162 184 M
 (\(self, rho_vec, t\):) s
-24 36 M (43:) s
-48 36 M
+24 173 M (53:) s
+48 173 M
 (        ) s
 /Courier-Oblique 10 10 SUF
-96 36 M
+96 173 M
 (# These two arrays store rho values based on the left and  right slopes,) s
 /F-gs-font 10 10 SF
-24 25 M (44:) s
+24 162 M (54:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 25 M
+48 162 M
 (        ) s
 /Courier-Oblique 10 10 SUF
-96 25 M
+96 162 M
 (# respectively, for the half-indicies between each rho value. The value) s
 /F-gs-font 10 10 SF
-24 14 M (45:) s
+24 151 M (55:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 14 M
+48 151 M
 (        ) s
 /Courier-Oblique 10 10 SUF
-96 14 M
+96 151 M
 (# at index 0 correspondes to rho_\(1/2\), index 1 to rho_\(3/2\), etc.) s
 /F-gs-font 10 10 SF
-24 3 M (46:) s
+24 140 M (56:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 3 M
+48 140 M
 (        rho_vec_half_L = np.zeros\(self.N\)) s
+24 129 M (57:) s
+48 129 M
+(        rho_vec_half_R = np.zeros\(self.N\)) s
+24 118 M (58:) s
+48 118 M
+(        ) s
+/Courier-Oblique 10 10 SUF
+96 118 M
+(# Uses linear "total variation diminishing" \(TVD\) scheme to extrapolate.) s
+/F-gs-font 10 10 SF
+24 107 M (59:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 107 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 107 M
+(for) s
+/F-gs-font 10 10 SF
+114 107 M
+( i ) s
+/Courier-Bold 10 10 SUF
+132 107 M
+(in) s
+/F-gs-font 10 10 SF
+144 107 M
+( range\(self.N\):) s
+24 96 M (60:) s
+48 96 M
+(            rho_vec_half_L[i] = rho_vec[i] + \\) s
+24 85 M (61:) s
+48 85 M
+(                0.5*self.minmod\(rho_vec[self.right\(i\)]-rho_vec[i], \\) s
+24 74 M (62:) s
+48 74 M
+(                rho_vec[i]-rho_vec[self.left\(i\)]\)) s
+24 63 M (63:) s
+48 63 M
+(            rho_vec_half_R[i] = rho_vec[self.right\(i\)] - \\) s
+24 52 M (64:) s
+48 52 M
+(                0.5*self.minmod\(rho_vec[self.right\(self.right\(i\)\)] - \\) s
+24 41 M (65:) s
+48 41 M
+(                rho_vec[self.right\(i\)], rho_vec[self.right\(i\)]- \\) s
+24 30 M (66:) s
+48 30 M
+(                rho_vec[i]\)) s
+24 19 M (67:) s
+48 19 M
+(        f_vec_half = np.zeros\(self.N\)) s
+24 8 M (68:) s
+48 8 M
+(        ) s
+/Courier-Oblique 10 10 SUF
+96 8 M
+(# This solves the Riemann problem by updating f_\(i+1/2\) based on sign\(s\).) s
 _R
 S
 %%Page: (2) 2
 %%BeginPageSetup
 _S
-90 rotate
-24 -571 translate
+24 24 translate
 /pagenum 2 def
 /fname (traffic_flow.py) def
 /fdir (.) def
 /ftail (traffic_flow.py) def
+/Courier-Oblique 10 10 SUF
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (12/08/19) def
-/modtimestr (16:03:34) def
+/moddatestr (12/15/19) def
+/modtimestr (17:10:36) def
 /user_header_p false def
 /user_footer_p false def
 %%EndPageSetup
 do_header
-24 498 M (47:) s
-48 498 M
-(        rho_vec_half_R = np.zeros\(self.N\)) s
-24 487 M (48:) s
-48 487 M
-(        ) s
-/Courier-Oblique 10 10 SUF
-96 487 M
-(# Uses linear "total variation diminishing" \(TVD\) scheme to extrapolate.) s
 /F-gs-font 10 10 SF
-24 476 M (49:) s
+24 745 M (69:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 476 M
+48 745 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 476 M
+96 745 M
 (for) s
 /F-gs-font 10 10 SF
-114 476 M
+114 745 M
 ( i ) s
 /Courier-Bold 10 10 SUF
-132 476 M
+132 745 M
 (in) s
 /F-gs-font 10 10 SF
-144 476 M
+144 745 M
 ( range\(self.N\):) s
-24 465 M (50:) s
-48 465 M
-(            rho_vec_half_L[i] = rho_vec[i] + \\) s
-24 454 M (51:) s
-48 454 M
-(                0.5*self.minmod\(rho_vec[self.right\(i\)]-rho_vec[i], \\) s
-24 443 M (52:) s
-48 443 M
-(                rho_vec[i]-rho_vec[self.left\(i\)]\)) s
-24 432 M (53:) s
-48 432 M
-(            rho_vec_half_R[i] = rho_vec[self.right\(i\)] - \\) s
-24 421 M (54:) s
-48 421 M
-(                0.5*self.minmod\(rho_vec[self.right\(self.right\(i\)\)] - \\) s
-24 410 M (55:) s
-48 410 M
-(                rho_vec[self.right\(i\)], rho_vec[self.right\(i\)]- \\) s
-24 399 M (56:) s
-48 399 M
-(                rho_vec[i]\)) s
-24 388 M (57:) s
-48 388 M
-(        f_vec_half = np.zeros\(self.N\)) s
-24 377 M (58:) s
-48 377 M
-(        ) s
-/Courier-Oblique 10 10 SUF
-96 377 M
-(# This solves the Riemann problem by updating f_\(i+1/2\) based on sign\(s\).) s
-/F-gs-font 10 10 SF
-24 366 M (59:) s
-/Courier-Oblique 10 10 SUF
-/F-gs-font 10 10 SF
-48 366 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 366 M
-(for) s
-/F-gs-font 10 10 SF
-114 366 M
-( i ) s
-/Courier-Bold 10 10 SUF
-132 366 M
-(in) s
-/F-gs-font 10 10 SF
-144 366 M
-( range\(self.N\):) s
-24 355 M (60:) s
-48 355 M
+24 734 M (70:) s
+48 734 M
 (            s = 0) s
-24 344 M (61:) s
-48 344 M
+24 723 M (71:) s
+48 723 M
 (            ) s
 /Courier-Bold 10 10 SUF
-120 344 M
+120 723 M
 (if) s
 /F-gs-font 10 10 SF
-132 344 M
+132 723 M
 ( \(rho_vec_half_L[i] - rho_vec_half_R[i]\) != 0:) s
-24 333 M (62:) s
-48 333 M
+24 712 M (72:) s
+48 712 M
 (                s = \(self.f\(rho_vec_half_L[i]\) - self.f\(rho_vec_half_R[i]\)\)/ \\) s
-24 322 M (63:) s
-48 322 M
+24 701 M (73:) s
+48 701 M
 (                    \(rho_vec_half_L[i] - rho_vec_half_R[i]\)) s
-24 311 M (64:) s
-48 311 M
+24 690 M (74:) s
+48 690 M
 (            ) s
 /Courier-Bold 10 10 SUF
-120 311 M
+120 690 M
 (if) s
 /F-gs-font 10 10 SF
-132 311 M
+132 690 M
 ( s>0:) s
-24 300 M (65:) s
-48 300 M
+24 679 M (75:) s
+48 679 M
 (                f_vec_half[i] = self.f\(rho_vec_half_L[i]\)) s
-24 289 M (66:) s
-48 289 M
+24 668 M (76:) s
+48 668 M
 (            ) s
 /Courier-Bold 10 10 SUF
-120 289 M
+120 668 M
 (else) s
 /F-gs-font 10 10 SF
-144 289 M
+144 668 M
 (:) s
-24 278 M (67:) s
-48 278 M
+24 657 M (77:) s
+48 657 M
 (                f_vec_half[i] = self.f\(rho_vec_half_R[i]\)) s
-24 267 M (68:) s
-48 267 M
+24 646 M (78:) s
+48 646 M
 (        rho_vec_dt = np.zeros\(self.N\)) s
-24 256 M (69:) s
-48 256 M
+24 635 M (79:) s
+48 635 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 256 M
+96 635 M
 (for) s
 /F-gs-font 10 10 SF
-114 256 M
+114 635 M
 ( i ) s
 /Courier-Bold 10 10 SUF
-132 256 M
+132 635 M
 (in) s
 /F-gs-font 10 10 SF
-144 256 M
+144 635 M
 ( range\(self.N\):) s
-24 245 M (70:) s
-48 245 M
+24 624 M (80:) s
+48 624 M
 (        ) s
 /Courier-Oblique 10 10 SUF
-96 245 M
+96 624 M
 (#create array of rho derivatives using f values) s
 /F-gs-font 10 10 SF
-24 234 M (71:) s
+24 613 M (81:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 234 M
+48 613 M
 (            rho_vec_dt[i] = -1/\(self.delta_x\)*\(f_vec_half[i] - \\) s
-24 223 M (72:) s
-48 223 M
+24 602 M (82:) s
+48 602 M
 (            f_vec_half[self.left\(i\)]\)) s
-24 212 M (73:) s
-48 212 M
+24 591 M (83:) s
+48 591 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 212 M
+96 591 M
 (return) s
 /F-gs-font 10 10 SF
-132 212 M
+132 591 M
 ( rho_vec_dt) s
-24 201 M (74:) s
-24 190 M (75:) s
-48 190 M
+24 580 M (84:) s
+24 569 M (85:) s
+48 569 M
 (    ) s
 /Courier-Oblique 10 10 SUF
-72 190 M
-(# Computes rho derivs without HRSC, using center difference method.) s
-/F-gs-font 10 10 SF
-24 179 M (76:) s
-/Courier-Oblique 10 10 SUF
-/F-gs-font 10 10 SF
-48 179 M
-(    ) s
-/Courier-Bold 10 10 SUF
-72 179 M
-(def) s
-/F-gs-font 10 10 SF
-90 179 M
-( ) s
-/Courier-Bold 10 10 SUF
-96 179 M
-(derivs) s
-/F-gs-font 10 10 SF
-132 179 M
-(\(self, rho_vec, t\):) s
-24 168 M (77:) s
-48 168 M
-(        rho_vec_dt = np.zeros\(self.N\)) s
-24 157 M (78:) s
-48 157 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 157 M
-(for) s
-/F-gs-font 10 10 SF
-114 157 M
-( i ) s
-/Courier-Bold 10 10 SUF
-132 157 M
-(in) s
-/F-gs-font 10 10 SF
-144 157 M
-( range\(self.N\):) s
-24 146 M (79:) s
-48 146 M
-(            rho_vec_dt[i] = -1/\(2*self.delta_x\) * \\) s
-24 135 M (80:) s
-48 135 M
-(                \(self.f\(rho_vec[self.right\(i\)]\) - self.f\(rho_vec[self.left\(i\)]\)\)) s
-24 124 M (81:) s
-48 124 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 124 M
-(return) s
-/F-gs-font 10 10 SF
-132 124 M
-( rho_vec_dt) s
-24 113 M (82:) s
-24 102 M (83:) s
-48 102 M
-(    ) s
-/Courier-Oblique 10 10 SUF
-72 102 M
+72 569 M
 (# This function returns the anti-derivative of the characteristic speed.) s
 /F-gs-font 10 10 SF
-24 91 M (84:) s
+24 558 M (86:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 91 M
+48 558 M
 (    ) s
 /Courier-Bold 10 10 SUF
-72 91 M
+72 558 M
 (def) s
 /F-gs-font 10 10 SF
-90 91 M
+90 558 M
 ( ) s
 /Courier-Bold 10 10 SUF
-96 91 M
+96 558 M
 (f) s
 /F-gs-font 10 10 SF
-102 91 M
+102 558 M
 (\(self, rho\):) s
-24 80 M (85:) s
-48 80 M
+24 547 M (87:) s
+48 547 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 80 M
+96 547 M
 (return) s
 /F-gs-font 10 10 SF
-132 80 M
+132 547 M
 ( rho*self.u_max*\(1-rho/self.rho_max\)) s
-24 69 M (86:) s
-24 58 M (87:) s
-48 58 M
+24 536 M (88:) s
+24 525 M (89:) s
+48 525 M
 (    ) s
 /Courier-Oblique 10 10 SUF
-72 58 M
+72 525 M
 (# Left and right allow for periodic boundary conditions.) s
 /F-gs-font 10 10 SF
-24 47 M (88:) s
+24 514 M (90:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
-48 47 M
+48 514 M
 (    ) s
 /Courier-Bold 10 10 SUF
-72 47 M
+72 514 M
 (def) s
 /F-gs-font 10 10 SF
-90 47 M
+90 514 M
 ( ) s
 /Courier-Bold 10 10 SUF
-96 47 M
+96 514 M
 (left) s
 /F-gs-font 10 10 SF
-120 47 M
+120 514 M
 (\(self,i\):) s
-24 36 M (89:) s
-48 36 M
+24 503 M (91:) s
+48 503 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 36 M
+96 503 M
 (if) s
 /F-gs-font 10 10 SF
-108 36 M
+108 503 M
 ( i == 0:) s
-24 25 M (90:) s
-48 25 M
+24 492 M (92:) s
+48 492 M
 (            ) s
 /Courier-Bold 10 10 SUF
-120 25 M
+120 492 M
 (return) s
 /F-gs-font 10 10 SF
-156 25 M
+156 492 M
 ( self.N - 1) s
-24 14 M (91:) s
-48 14 M
+24 481 M (93:) s
+48 481 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 14 M
+96 481 M
 (return) s
 /F-gs-font 10 10 SF
-132 14 M
+132 481 M
 ( i - 1) s
-24 3 M (92:) s
-48 3 M
+24 470 M (94:) s
+48 470 M
 (    ) s
 /Courier-Bold 10 10 SUF
-72 3 M
+72 470 M
 (def) s
 /F-gs-font 10 10 SF
-90 3 M
+90 470 M
 ( ) s
 /Courier-Bold 10 10 SUF
-96 3 M
+96 470 M
 (right) s
 /F-gs-font 10 10 SF
-126 3 M
+126 470 M
 (\(self,i\):) s
+24 459 M (95:) s
+48 459 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 459 M
+(if) s
+/F-gs-font 10 10 SF
+108 459 M
+( i == self.N - 1:) s
+24 448 M (96:) s
+48 448 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 448 M
+(return) s
+/F-gs-font 10 10 SF
+156 448 M
+( 0) s
+24 437 M (97:) s
+48 437 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 437 M
+(return) s
+/F-gs-font 10 10 SF
+132 437 M
+( i + 1) s
+24 426 M (98:) s
+24 415 M (99:) s
+48 415 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 415 M
+(# Minmod diminisher function is necessary for linear TVD scheme.) s
+/F-gs-font 10 10 SF
+18 404 M (100:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 404 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 404 M
+(def) s
+/F-gs-font 10 10 SF
+90 404 M
+( ) s
+/Courier-Bold 10 10 SUF
+96 404 M
+(minmod) s
+/F-gs-font 10 10 SF
+132 404 M
+(\(self, a, b\):) s
+18 393 M (101:) s
+48 393 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 393 M
+(if) s
+/F-gs-font 10 10 SF
+108 393 M
+( a*b > 0:) s
+18 382 M (102:) s
+48 382 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 382 M
+(if) s
+/F-gs-font 10 10 SF
+132 382 M
+( np.abs\(a\) <= np.abs\(b\):) s
+18 371 M (103:) s
+48 371 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 371 M
+(return) s
+/F-gs-font 10 10 SF
+180 371 M
+( a) s
+18 360 M (104:) s
+48 360 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 360 M
+(else) s
+/F-gs-font 10 10 SF
+144 360 M
+(:) s
+18 349 M (105:) s
+48 349 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 349 M
+(return) s
+/F-gs-font 10 10 SF
+180 349 M
+( b) s
+18 338 M (106:) s
+48 338 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 338 M
+(return) s
+/F-gs-font 10 10 SF
+132 338 M
+( 0) s
+18 327 M (107:) s
+18 316 M (108:) s
+48 316 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 316 M
+(# This creates a plot of rho as a function of x for various t values.) s
+/F-gs-font 10 10 SF
+18 305 M (109:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 305 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 305 M
+(def) s
+/F-gs-font 10 10 SF
+90 305 M
+( ) s
+/Courier-Bold 10 10 SUF
+96 305 M
+(graph_rho) s
+/F-gs-font 10 10 SF
+150 305 M
+(\(self, num_plots\):) s
+18 294 M (110:) s
+48 294 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 294 M
+(for) s
+/F-gs-font 10 10 SF
+114 294 M
+( i ) s
+/Courier-Bold 10 10 SUF
+132 294 M
+(in) s
+/F-gs-font 10 10 SF
+144 294 M
+( range\(len\(self.t_vec\)\):) s
+18 283 M (111:) s
+48 283 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 283 M
+(if) s
+/F-gs-font 10 10 SF
+132 283 M
+( i%int\(self.time_steps/num_plots\) == 0:) s
+18 272 M (112:) s
+48 272 M
+(                plt.plot\(self.x_vec, self.rho_mat[i], label=) s
+/Courier-Bold 10 10 SUF
+408 272 M
+("t=") s
+/F-gs-font 10 10 SF
+432 272 M
+( + \\) s
+18 261 M (113:) s
+48 261 M
+(                    str\(round\(100*self.t_vec[i]\)/100\)\)) s
+18 250 M (114:) s
+48 250 M
+(        plt.xlabel\(r) s
+/Courier-Bold 10 10 SUF
+168 250 M
+('$x$') s
+/F-gs-font 10 10 SF
+198 250 M
+(\)) s
+18 239 M (115:) s
+48 239 M
+(        plt.ylabel\(r) s
+/Courier-Bold 10 10 SUF
+168 239 M
+('$\\rho$') s
+/F-gs-font 10 10 SF
+216 239 M
+(\)) s
+18 228 M (116:) s
+48 228 M
+(        title = r) s
+/Courier-Bold 10 10 SUF
+150 228 M
+('Plot of $\\rho$ vs. $x$ for $\\bar{\\rho}=$') s
+/F-gs-font 10 10 SF
+402 228 M
+( + \\) s
+18 217 M (117:) s
+48 217 M
+(            str\(self.rho_bar\) + r) s
+/Courier-Bold 10 10 SUF
+246 217 M
+(' and $\\delta\\rho=$') s
+/F-gs-font 10 10 SF
+366 217 M
+( + str\(self.delta_rho\)) s
+18 206 M (118:) s
+48 206 M
+(        plt.title\(title\)) s
+18 195 M (119:) s
+48 195 M
+(        plt.legend\(\)) s
+18 184 M (120:) s
+48 184 M
+(        plt.show\(\)) s
+18 173 M (121:) s
+18 162 M (122:) s
+48 162 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 162 M
+(# Returns the analytic expectation for the characteristic speed as well as) s
+/F-gs-font 10 10 SF
+18 151 M (123:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 151 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 151 M
+(# the numerical calculation for the characteristic speed.the numerical) s
+/F-gs-font 10 10 SF
+18 140 M (124:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 140 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 140 M
+(# calculation for the characteristic speed.) s
+/F-gs-font 10 10 SF
+18 129 M (125:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 129 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 129 M
+(def) s
+/F-gs-font 10 10 SF
+90 129 M
+( ) s
+/Courier-Bold 10 10 SUF
+96 129 M
+(get_characteristic_speed) s
+/F-gs-font 10 10 SF
+240 129 M
+(\(self\):) s
+18 118 M (126:) s
+48 118 M
+(        dir = 0) s
+18 107 M (127:) s
+48 107 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 107 M
+(for) s
+/F-gs-font 10 10 SF
+114 107 M
+( i ) s
+/Courier-Bold 10 10 SUF
+132 107 M
+(in) s
+/F-gs-font 10 10 SF
+144 107 M
+( range\(1, len\(self.rho_mat\)\):) s
+18 96 M (128:) s
+48 96 M
+(            x_pos_of_next_max = self.x_vec[np.where\(self.rho_mat[i] == \\) s
+18 85 M (129:) s
+48 85 M
+(                np.amax\(self.rho_mat[i]\)\)[0][0]]) s
+18 74 M (130:) s
+48 74 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 74 M
+(if) s
+/F-gs-font 10 10 SF
+132 74 M
+( x_pos_of_next_max > self.x_center:) s
+18 63 M (131:) s
+48 63 M
+(                dir = 1) s
+18 52 M (132:) s
+48 52 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 52 M
+(break) s
+/F-gs-font 10 10 SF
+18 41 M (133:) s
+48 41 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 41 M
+(elif) s
+/F-gs-font 10 10 SF
+144 41 M
+( x_pos_of_next_max < self.x_center:) s
+18 30 M (134:) s
+48 30 M
+(                dir = -1) s
+18 19 M (135:) s
+48 19 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 19 M
+(break) s
+/F-gs-font 10 10 SF
+18 8 M (136:) s
+48 8 M
+(        analytic_speed = self.u_max*\(1-\(2*self.rho_bar\)/\(self.rho_max\)\)*dir) s
 _R
 S
 %%Page: (3) 3
 %%BeginPageSetup
 _S
-90 rotate
-24 -571 translate
+24 24 translate
 /pagenum 3 def
 /fname (traffic_flow.py) def
 /fdir (.) def
 /ftail (traffic_flow.py) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (12/08/19) def
-/modtimestr (16:03:34) def
+/moddatestr (12/15/19) def
+/modtimestr (17:10:36) def
 /user_header_p false def
 /user_footer_p false def
 %%EndPageSetup
 do_header
-24 498 M (93:) s
-48 498 M
+18 745 M (137:) s
+18 734 M (138:) s
+48 734 M
+(        total_change_in_x = 0) s
+18 723 M (139:) s
+48 723 M
+(        total_change_in_t = 0) s
+18 712 M (140:) s
+18 701 M (141:) s
+48 701 M
 (        ) s
 /Courier-Bold 10 10 SUF
-96 498 M
-(if) s
-/F-gs-font 10 10 SF
-108 498 M
-( i == self.N - 1:) s
-24 487 M (94:) s
-48 487 M
-(            ) s
-/Courier-Bold 10 10 SUF
-120 487 M
-(return) s
-/F-gs-font 10 10 SF
-156 487 M
-( 0) s
-24 476 M (95:) s
-48 476 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 476 M
-(return) s
-/F-gs-font 10 10 SF
-132 476 M
-( i + 1) s
-24 465 M (96:) s
-24 454 M (97:) s
-48 454 M
-(    ) s
-/Courier-Oblique 10 10 SUF
-72 454 M
-(# Minmod diminisher function is necessary for linear TVD scheme.) s
-/F-gs-font 10 10 SF
-24 443 M (98:) s
-/Courier-Oblique 10 10 SUF
-/F-gs-font 10 10 SF
-48 443 M
-(    ) s
-/Courier-Bold 10 10 SUF
-72 443 M
-(def) s
-/F-gs-font 10 10 SF
-90 443 M
-( ) s
-/Courier-Bold 10 10 SUF
-96 443 M
-(minmod) s
-/F-gs-font 10 10 SF
-132 443 M
-(\(self, a, b\):) s
-24 432 M (99:) s
-48 432 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 432 M
-(if) s
-/F-gs-font 10 10 SF
-108 432 M
-( a*b > 0:) s
-18 421 M (100:) s
-48 421 M
-(            ) s
-/Courier-Bold 10 10 SUF
-120 421 M
-(if) s
-/F-gs-font 10 10 SF
-132 421 M
-( np.abs\(a\) <= np.abs\(b\):) s
-18 410 M (101:) s
-48 410 M
-(                ) s
-/Courier-Bold 10 10 SUF
-144 410 M
-(return) s
-/F-gs-font 10 10 SF
-180 410 M
-( a) s
-18 399 M (102:) s
-48 399 M
-(            ) s
-/Courier-Bold 10 10 SUF
-120 399 M
-(else) s
-/F-gs-font 10 10 SF
-144 399 M
-(:) s
-18 388 M (103:) s
-48 388 M
-(                ) s
-/Courier-Bold 10 10 SUF
-144 388 M
-(return) s
-/F-gs-font 10 10 SF
-180 388 M
-( b) s
-18 377 M (104:) s
-48 377 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 377 M
-(return) s
-/F-gs-font 10 10 SF
-132 377 M
-( 0) s
-18 366 M (105:) s
-18 355 M (106:) s
-48 355 M
-(    ) s
-/Courier-Oblique 10 10 SUF
-72 355 M
-(# This creates a plot of rho as a function of x for various t values.) s
-/F-gs-font 10 10 SF
-18 344 M (107:) s
-/Courier-Oblique 10 10 SUF
-/F-gs-font 10 10 SF
-48 344 M
-(    ) s
-/Courier-Bold 10 10 SUF
-72 344 M
-(def) s
-/F-gs-font 10 10 SF
-90 344 M
-( ) s
-/Courier-Bold 10 10 SUF
-96 344 M
-(graph_rho) s
-/F-gs-font 10 10 SF
-150 344 M
-(\(self, num_plots\):) s
-18 333 M (108:) s
-48 333 M
-(        ) s
-/Courier-Bold 10 10 SUF
-96 333 M
+96 701 M
 (for) s
 /F-gs-font 10 10 SF
-114 333 M
+114 701 M
 ( i ) s
 /Courier-Bold 10 10 SUF
-132 333 M
+132 701 M
 (in) s
 /F-gs-font 10 10 SF
-144 333 M
-( range\(len\(self.t_vec\)\):) s
-18 322 M (109:) s
-48 322 M
+144 701 M
+( range\(len\(self.rho_mat\) - 1\):) s
+18 690 M (142:) s
+48 690 M
+(            curr_max = \\) s
+18 679 M (143:) s
+48 679 M
+(                np.where\(self.rho_mat[i] == np.amax\(self.rho_mat[i]\)\)[0][0]) s
+18 668 M (144:) s
+48 668 M
+(            next_max = \\) s
+18 657 M (145:) s
+48 657 M
+(                np.where\(self.rho_mat[i+1] == np.amax\(self.rho_mat[i+1]\)\)[0][0]) s
+18 646 M (146:) s
+48 646 M
 (            ) s
 /Courier-Bold 10 10 SUF
-120 322 M
+120 646 M
 (if) s
 /F-gs-font 10 10 SF
-132 322 M
-( i%int\(self.M/num_plots\) == 0:) s
-18 311 M (110:) s
-48 311 M
-(                plt.plot\(self.x_vec, self.rho_mat[i], label=) s
-/Courier-Bold 10 10 SUF
-408 311 M
-("t=") s
-/F-gs-font 10 10 SF
-432 311 M
-( + \\) s
-18 300 M (111:) s
-48 300 M
-(                str\(self.t_vec[i]\)\)) s
-18 289 M (112:) s
-48 289 M
-(        plt.xlabel\(r) s
-/Courier-Bold 10 10 SUF
-168 289 M
-('x') s
-/F-gs-font 10 10 SF
-186 289 M
-(\)) s
-18 278 M (113:) s
-48 278 M
-(        plt.ylabel\(r) s
-/Courier-Bold 10 10 SUF
-168 278 M
-('$\\rho$') s
-/F-gs-font 10 10 SF
-216 278 M
-(\)) s
-18 267 M (114:) s
-48 267 M
-(        title = r) s
-/Courier-Bold 10 10 SUF
-150 267 M
-('Plot of $\\rho$ vs. $x$ for $\\bar{\\rho}=$') s
-/F-gs-font 10 10 SF
-402 267 M
-( + str\(self.rho_bar\) \\) s
-18 256 M (115:) s
-48 256 M
-(            + r) s
-/Courier-Bold 10 10 SUF
-138 256 M
-(' and $\\delta\\rho=$') s
-/F-gs-font 10 10 SF
-258 256 M
-( + str\(self.delta_rho\)) s
-18 245 M (116:) s
-48 245 M
-(        plt.title\(title\)) s
-18 234 M (117:) s
-48 234 M
-(        plt.legend\(\)) s
-18 223 M (118:) s
-48 223 M
-(        plt.show\(\)) s
-18 212 M (119:) s
-18 201 M (120:) s
+132 646 M
+( dir == -1:) s
+18 635 M (147:) s
+48 635 M
+(                ) s
 /Courier-Oblique 10 10 SUF
-48 201 M
-(# Creates an instance of the TrafficFlow class, fills the rho matrix and graphs it.) s
+144 635 M
+(# didn't wrap) s
 /F-gs-font 10 10 SF
-18 190 M (121:) s
+18 624 M (148:) s
 /Courier-Oblique 10 10 SUF
 /F-gs-font 10 10 SF
+48 624 M
+(                ) s
 /Courier-Bold 10 10 SUF
-48 190 M
+144 624 M
+(if) s
+/F-gs-font 10 10 SF
+156 624 M
+( self.x_vec[next_max] <= self.x_vec[curr_max]:) s
+18 613 M (149:) s
+48 613 M
+(                    total_change_in_x += self.x_vec[next_max] - \\) s
+18 602 M (150:) s
+48 602 M
+(                        self.x_vec[curr_max]) s
+18 591 M (151:) s
+48 591 M
+(                ) s
+/Courier-Oblique 10 10 SUF
+144 591 M
+(# did wrap) s
+/F-gs-font 10 10 SF
+18 580 M (152:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 580 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 580 M
+(else) s
+/F-gs-font 10 10 SF
+168 580 M
+(:) s
+18 569 M (153:) s
+48 569 M
+(                    total_change_in_x += self.x_vec[next_max] - \\) s
+18 558 M (154:) s
+48 558 M
+(                        \(1 + self.x_vec[curr_max]\)) s
+18 547 M (155:) s
+48 547 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 547 M
+(else) s
+/F-gs-font 10 10 SF
+144 547 M
+(:) s
+18 536 M (156:) s
+48 536 M
+(                ) s
+/Courier-Oblique 10 10 SUF
+144 536 M
+(# didn't wrap) s
+/F-gs-font 10 10 SF
+18 525 M (157:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 525 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 525 M
+(if) s
+/F-gs-font 10 10 SF
+156 525 M
+( self.x_vec[next_max] >= self.x_vec[curr_max]:) s
+18 514 M (158:) s
+48 514 M
+(                    total_change_in_x += self.x_vec[next_max] - \\) s
+18 503 M (159:) s
+48 503 M
+(                        self.x_vec[curr_max]) s
+18 492 M (160:) s
+48 492 M
+(                ) s
+/Courier-Oblique 10 10 SUF
+144 492 M
+(# did wrap) s
+/F-gs-font 10 10 SF
+18 481 M (161:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 481 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 481 M
+(else) s
+/F-gs-font 10 10 SF
+168 481 M
+(:) s
+18 470 M (162:) s
+48 470 M
+(                    total_change_in_x += \(1 + self.x_vec[next_max]\) - \\) s
+18 459 M (163:) s
+48 459 M
+(                        self.x_vec[curr_max]) s
+18 448 M (164:) s
+18 437 M (165:) s
+48 437 M
+(            total_change_in_t += self.t_vec[i+1] - self.t_vec[i]) s
+18 426 M (166:) s
+48 426 M
+(        num_speed = total_change_in_x / total_change_in_t) s
+18 415 M (167:) s
+48 415 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 415 M
+(return) s
+/F-gs-font 10 10 SF
+132 415 M
+( analytic_speed, num_speed) s
+18 404 M (168:) s
+18 393 M (169:) s
+48 393 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 393 M
+(# Models the position of a number of cars based on the computed row values) s
+/F-gs-font 10 10 SF
+18 382 M (170:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 382 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 382 M
+(# for a particular traffic flow.) s
+/F-gs-font 10 10 SF
+18 371 M (171:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 371 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 371 M
 (def) s
 /F-gs-font 10 10 SF
-66 190 M
+90 371 M
 ( ) s
 /Courier-Bold 10 10 SUF
-72 190 M
-(main) s
+96 371 M
+(model_cars) s
 /F-gs-font 10 10 SF
-96 190 M
-(\(\):) s
-18 179 M (122:) s
-48 179 M
-(    flow = TrafficFlow\(0.5, 1e-2, 299\)) s
-18 168 M (123:) s
-48 168 M
-(    t = 10) s
-18 157 M (124:) s
-48 157 M
-(    flow.fill_rho_mat_HRSC\(t, t+1\)) s
-18 146 M (125:) s
-48 146 M
-(    flow.graph_rho\(5\)) s
-18 135 M (126:) s
-18 124 M (127:) s
+156 371 M
+(\(self, num_cars, pos_max\):) s
+18 360 M (172:) s
+48 360 M
+(        ) s
+/Courier-Oblique 10 10 SUF
+96 360 M
+(# each row is a particular car, each column is a time step) s
+/F-gs-font 10 10 SF
+18 349 M (173:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 349 M
+(        car_pos_mat = np.zeros\(\(num_cars, self.time_steps\)\)) s
+18 338 M (174:) s
+48 338 M
+(        init_pos = np.linspace\(0.0, pos_max, num_cars\)) s
+18 327 M (175:) s
+18 316 M (176:) s
+48 316 M
+(        ) s
 /Courier-Bold 10 10 SUF
-48 124 M
+96 316 M
+(for) s
+/F-gs-font 10 10 SF
+114 316 M
+( i ) s
+/Courier-Bold 10 10 SUF
+132 316 M
+(in) s
+/F-gs-font 10 10 SF
+144 316 M
+( range\(num_cars\):) s
+18 305 M (177:) s
+48 305 M
+(            car_pos_mat[i][0] = init_pos[i]) s
+18 294 M (178:) s
+48 294 M
+(            u_vec = np.zeros\(self.time_steps - 1\)) s
+18 283 M (179:) s
+48 283 M
+(            ) s
+/Courier-Bold 10 10 SUF
+120 283 M
+(for) s
+/F-gs-font 10 10 SF
+138 283 M
+( j ) s
+/Courier-Bold 10 10 SUF
+156 283 M
+(in) s
+/F-gs-font 10 10 SF
+168 283 M
+( range\(0, self.time_steps - 1\):) s
+18 272 M (180:) s
+48 272 M
+(                car_pos = car_pos_mat[i][j]) s
+18 261 M (181:) s
+48 261 M
+(                x_index = int\(car_pos*\(self.N-1\)\)) s
+18 250 M (182:) s
+48 250 M
+(                rho = self.rho_mat[j][x_index]) s
+18 239 M (183:) s
+48 239 M
+(                u_vec[j] = self.u_max*\(1-\(rho/self.rho_max\)\)) s
+18 228 M (184:) s
+48 228 M
+(                pos = car_pos_mat[i][j] + u_vec[j]*self.delta_t) s
+18 217 M (185:) s
+48 217 M
+(                ) s
+/Courier-Bold 10 10 SUF
+144 217 M
 (if) s
 /F-gs-font 10 10 SF
-60 124 M
+156 217 M
+( pos >=1 :) s
+18 206 M (186:) s
+48 206 M
+(                    pos -= 1) s
+18 195 M (187:) s
+48 195 M
+(                car_pos_mat[i][j + 1] = pos) s
+18 184 M (188:) s
+18 173 M (189:) s
+48 173 M
+(        self.car_pos_mat = car_pos_mat) s
+18 162 M (190:) s
+18 151 M (191:) s
+48 151 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 151 M
+(# Generates an t vs. x plot of the position of the cars as created in the) s
+/F-gs-font 10 10 SF
+18 140 M (192:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 140 M
+(    ) s
+/Courier-Oblique 10 10 SUF
+72 140 M
+(# model cars method.) s
+/F-gs-font 10 10 SF
+18 129 M (193:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+48 129 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 129 M
+(def) s
+/F-gs-font 10 10 SF
+90 129 M
+( ) s
+/Courier-Bold 10 10 SUF
+96 129 M
+(graph_cars) s
+/F-gs-font 10 10 SF
+156 129 M
+(\(self\):) s
+18 118 M (194:) s
+48 118 M
+(        ) s
+/Courier-Bold 10 10 SUF
+96 118 M
+(for) s
+/F-gs-font 10 10 SF
+114 118 M
+( i ) s
+/Courier-Bold 10 10 SUF
+132 118 M
+(in) s
+/F-gs-font 10 10 SF
+144 118 M
+( range\(len\(self.car_pos_mat\)\):) s
+18 107 M (195:) s
+48 107 M
+(            plt.plot\(self.car_pos_mat[i], self.t_vec, label = ) s
+/Courier-Bold 10 10 SUF
+420 107 M
+("car ") s
+/F-gs-font 10 10 SF
+456 107 M
+( +  str\(i\)\)) s
+18 96 M (196:) s
+48 96 M
+(        plt.legend\(\)) s
+18 85 M (197:) s
+48 85 M
+(        plt.xlabel\(r) s
+/Courier-Bold 10 10 SUF
+168 85 M
+('$x$') s
+/F-gs-font 10 10 SF
+198 85 M
+(\)) s
+18 74 M (198:) s
+48 74 M
+(        plt.ylabel\(r) s
+/Courier-Bold 10 10 SUF
+168 74 M
+('$t$') s
+/F-gs-font 10 10 SF
+198 74 M
+(\)) s
+18 63 M (199:) s
+48 63 M
+(        title = r) s
+/Courier-Bold 10 10 SUF
+150 63 M
+('Plot of $t$ vs. $x$ for $\\bar{\\rho}=$') s
+/F-gs-font 10 10 SF
+384 63 M
+( + str\(self.rho_bar\) \\) s
+18 52 M (200:) s
+48 52 M
+(            + r) s
+/Courier-Bold 10 10 SUF
+138 52 M
+(' and $\\delta\\rho=$') s
+/F-gs-font 10 10 SF
+258 52 M
+( + str\(self.delta_rho\)) s
+18 41 M (201:) s
+48 41 M
+(        plt.title\(title\)) s
+18 30 M (202:) s
+48 30 M
+(        plt.show\(\)) s
+18 19 M (203:) s
+18 8 M (204:) s
+/Courier-Oblique 10 10 SUF
+48 8 M
+(# This method plots the characteristic speed u as as function of delta rho.) s
+_R
+S
+%%Page: (4) 4
+%%BeginPageSetup
+_S
+24 24 translate
+/pagenum 4 def
+/fname (traffic_flow.py) def
+/fdir (.) def
+/ftail (traffic_flow.py) def
+/Courier-Oblique 10 10 SUF
+% User defined strings:
+/pagenumstr (4) def
+/moddatestr (12/15/19) def
+/modtimestr (17:10:36) def
+/user_header_p false def
+/user_footer_p false def
+%%EndPageSetup
+do_header
+/F-gs-font 10 10 SF
+18 745 M (205:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+/Courier-Bold 10 10 SUF
+48 745 M
+(def) s
+/F-gs-font 10 10 SF
+66 745 M
+( ) s
+/Courier-Bold 10 10 SUF
+72 745 M
+(graph_u_vs_delta_rho) s
+/F-gs-font 10 10 SF
+192 745 M
+(\(rho_bar, max_t, timesteps, N, num_values\):) s
+18 734 M (206:) s
+48 734 M
+(    delta_rho_vec = np.linspace\(0.01, 0.05, num_values\)) s
+18 723 M (207:) s
+48 723 M
+(    numerical_speed_vec = []) s
+18 712 M (208:) s
+48 712 M
+(    analytic_speed_vec = []) s
+18 701 M (209:) s
+48 701 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 701 M
+(for) s
+/F-gs-font 10 10 SF
+90 701 M
+( delta_rho ) s
+/Courier-Bold 10 10 SUF
+156 701 M
+(in) s
+/F-gs-font 10 10 SF
+168 701 M
+( delta_rho_vec:) s
+18 690 M (210:) s
+48 690 M
+(        flow = TrafficFlow\(rho_bar, delta_rho, N\)) s
+18 679 M (211:) s
+48 679 M
+(        flow.fill_rho_mat_HRSC\(max_t, timesteps\)) s
+18 668 M (212:) s
+48 668 M
+(        analytic_speed, num_speed = flow.get_characteristic_speed\(\)) s
+18 657 M (213:) s
+48 657 M
+(        numerical_speed_vec.append\(num_speed\)) s
+18 646 M (214:) s
+48 646 M
+(        analytic_speed_vec.append\(analytic_speed\)) s
+18 635 M (215:) s
+48 635 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 635 M
+(print) s
+/F-gs-font 10 10 SF
+102 635 M
+(\(delta_rho_vec\)) s
+18 624 M (216:) s
+48 624 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 624 M
+(print) s
+/F-gs-font 10 10 SF
+102 624 M
+(\(numerical_speed_vec\)) s
+18 613 M (217:) s
+48 613 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 613 M
+(print) s
+/F-gs-font 10 10 SF
+102 613 M
+(\(analytic_speed_vec\)) s
+18 602 M (218:) s
+48 602 M
+(    plt.scatter\(delta_rho_vec, numerical_speed_vec, label = ) s
+/Courier-Bold 10 10 SUF
+408 602 M
+("numerical speed") s
+/F-gs-font 10 10 SF
+510 602 M
+(\)) s
+18 591 M (219:) s
+48 591 M
+(    plt.scatter\(delta_rho_vec, analytic_speed_vec, label = ) s
+/Courier-Bold 10 10 SUF
+402 591 M
+("analytic speed") s
+/F-gs-font 10 10 SF
+498 591 M
+(\)) s
+18 580 M (220:) s
+48 580 M
+(    plt.legend\(\)) s
+18 569 M (221:) s
+48 569 M
+(    plt.xlabel\(r) s
+/Courier-Bold 10 10 SUF
+144 569 M
+('$\\delta \\rho$') s
+/F-gs-font 10 10 SF
+234 569 M
+(\)) s
+18 558 M (222:) s
+48 558 M
+(    plt.ylabel\(r) s
+/Courier-Bold 10 10 SUF
+144 558 M
+('$u$') s
+/F-gs-font 10 10 SF
+174 558 M
+(\)) s
+18 547 M (223:) s
+48 547 M
+(    title = r) s
+/Courier-Bold 10 10 SUF
+126 547 M
+('Plot of $u$ vs. $\\delta \\rho$ for $\\bar{\\rho}=$') s
+/F-gs-font 10 10 SF
+420 547 M
+( + str\(rho_bar\)) s
+18 536 M (224:) s
+48 536 M
+(    plt.title\(title\)) s
+18 525 M (225:) s
+48 525 M
+(    plt.show\(\)) s
+18 514 M (226:) s
+18 503 M (227:) s
+/Courier-Oblique 10 10 SUF
+48 503 M
+(# Creates an instance of the TrafficFlow class, fills the rho matrix and graphs) s
+/F-gs-font 10 10 SF
+18 492 M (228:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+/Courier-Oblique 10 10 SUF
+48 492 M
+(# values of rho for different times t > 0. Computes the analytical and) s
+/F-gs-font 10 10 SF
+18 481 M (229:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+/Courier-Oblique 10 10 SUF
+48 481 M
+(# numerical characteristic speed. Creates a model of cars moving in this) s
+/F-gs-font 10 10 SF
+18 470 M (230:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+/Courier-Oblique 10 10 SUF
+48 470 M
+(# traffic flow and graphs the motion of these cars.) s
+/F-gs-font 10 10 SF
+18 459 M (231:) s
+/Courier-Oblique 10 10 SUF
+/F-gs-font 10 10 SF
+/Courier-Bold 10 10 SUF
+48 459 M
+(def) s
+/F-gs-font 10 10 SF
+66 459 M
+( ) s
+/Courier-Bold 10 10 SUF
+72 459 M
+(main) s
+/F-gs-font 10 10 SF
+96 459 M
+(\(\):) s
+18 448 M (232:) s
+48 448 M
+(    rho_bar = 0.4 ) s
+/Courier-Bold 10 10 SUF
+156 448 M
+(if) s
+/F-gs-font 10 10 SF
+168 448 M
+( len\(sys.argv\) <= 1 ) s
+/Courier-Bold 10 10 SUF
+288 448 M
+(else) s
+/F-gs-font 10 10 SF
+312 448 M
+( float\(sys.argv[1]\)) s
+18 437 M (233:) s
+48 437 M
+(    delta_rho = 0.1 ) s
+/Courier-Bold 10 10 SUF
+168 437 M
+(if) s
+/F-gs-font 10 10 SF
+180 437 M
+( len\(sys.argv\) <= 2 ) s
+/Courier-Bold 10 10 SUF
+300 437 M
+(else) s
+/F-gs-font 10 10 SF
+324 437 M
+( float\(sys.argv[2]\)) s
+18 426 M (234:) s
+48 426 M
+(    N = 99 ) s
+/Courier-Bold 10 10 SUF
+114 426 M
+(if) s
+/F-gs-font 10 10 SF
+126 426 M
+( len\(sys.argv\) <= 3 ) s
+/Courier-Bold 10 10 SUF
+246 426 M
+(else) s
+/F-gs-font 10 10 SF
+270 426 M
+( int\(sys.argv[3]\)) s
+18 415 M (235:) s
+48 415 M
+(    max_t = 1 ) s
+/Courier-Bold 10 10 SUF
+132 415 M
+(if) s
+/F-gs-font 10 10 SF
+144 415 M
+( len\(sys.argv\) <= 4 ) s
+/Courier-Bold 10 10 SUF
+264 415 M
+(else) s
+/F-gs-font 10 10 SF
+288 415 M
+( float\(sys.argv[4]\)) s
+18 404 M (236:) s
+48 404 M
+(    timesteps = 101 ) s
+/Courier-Bold 10 10 SUF
+168 404 M
+(if) s
+/F-gs-font 10 10 SF
+180 404 M
+( len\(sys.argv\) <= 5 ) s
+/Courier-Bold 10 10 SUF
+300 404 M
+(else) s
+/F-gs-font 10 10 SF
+324 404 M
+( float\(sys.argv[5]\)) s
+18 393 M (237:) s
+18 382 M (238:) s
+48 382 M
+(    flow = TrafficFlow\(rho_bar, delta_rho, N\)) s
+18 371 M (239:) s
+48 371 M
+(    flow.fill_rho_mat_HRSC\(max_t, timesteps\)) s
+18 360 M (240:) s
+48 360 M
+(    analytic_speed, num_speed = flow.get_characteristic_speed\(\)) s
+18 349 M (241:) s
+48 349 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 349 M
+(print) s
+/F-gs-font 10 10 SF
+102 349 M
+(\() s
+/Courier-Bold 10 10 SUF
+108 349 M
+("analytic_speed: ") s
+/F-gs-font 10 10 SF
+216 349 M
+( + str\(analytic_speed\)\)) s
+18 338 M (242:) s
+48 338 M
+(    ) s
+/Courier-Bold 10 10 SUF
+72 338 M
+(print) s
+/F-gs-font 10 10 SF
+102 338 M
+(\() s
+/Courier-Bold 10 10 SUF
+108 338 M
+("num_speed: ") s
+/F-gs-font 10 10 SF
+186 338 M
+( + str\(num_speed\)\)) s
+18 327 M (243:) s
+48 327 M
+(    flow.graph_rho\(5\)) s
+18 316 M (244:) s
+48 316 M
+(    flow.model_cars\(5, 0.3\)) s
+18 305 M (245:) s
+48 305 M
+(    flow.graph_cars\(\)) s
+18 294 M (246:) s
+18 283 M (247:) s
+48 283 M
+(    graph_u_vs_delta_rho\(rho_bar, max_t, timesteps, N, 8\)) s
+18 272 M (248:) s
+18 261 M (249:) s
+/Courier-Bold 10 10 SUF
+48 261 M
+(if) s
+/F-gs-font 10 10 SF
+60 261 M
 ( __name__ == ) s
 /Courier-Bold 10 10 SUF
-138 124 M
+138 261 M
 ("__main__") s
 /F-gs-font 10 10 SF
-198 124 M
+198 261 M
 (:) s
-18 113 M (128:) s
-48 113 M
+18 250 M (250:) s
+48 250 M
 (    main\(\)) s
 _R
 S
 %%Trailer
-%%Pages: 3
+%%Pages: 4
 %%DocumentNeededResources: font Times-Roman Courier-Oblique Courier-Bold 
 %%+ font Courier Times-Bold 
 %%EOF
