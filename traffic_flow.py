@@ -125,14 +125,13 @@ class TrafficFlow:
     def get_characteristic_speed(self):
         direction = -1
         i = 1
-        while(True):
+        for i in range(1, len(self.rho_mat)):
             x_pos_of_next_max = self.x_vec[np.where(self.rho_mat[i] == np.amax(self.rho_mat[i]))[0][0]]
             if x_pos_of_next_max > self.x_center:
                 direction = 1
                 break
-            elif x_pos_of_next_max > self.x_center:
+            elif x_pos_of_next_max < self.x_center:
                 break
-            i+=1
         analytic_speed = self.u_max*(1-(2*self.rho_bar)/(self.rho_max))*direction
 
         total_change_in_x = 0
