@@ -7,12 +7,13 @@ import sys
 # The traffic flow class allows us to model traffic flow. It uses the method
 # of lines along with a High-resolution shock-capturing schemes (HRSC).
 class TrafficFlow:
-    #
+    # Creates the rho init vector based on the initial conditions.
     def __init__(self, rho_bar, delta_rho, N, x_center = 0.5, \
             lam = 0.1, rho_max = 1, u_max = 1):
         self.rho_bar = rho_bar
         self.delta_rho = delta_rho
         self.u_max = u_max
+        self.x_center = x_center
         self.rho_max = rho_max
         self.delta_x = 1./N
         self.N = N
@@ -109,7 +110,7 @@ class TrafficFlow:
         for i in range(len(self.t_vec)):
             if i%int(self.time_steps/num_plots) == 0:
                 plt.plot(self.x_vec, self.rho_mat[i], label="t=" + \
-                    str(self.t_vec[i]))
+                    str(round(100*self.t_vec[i])/100))
         plt.xlabel(r'$x$')
         plt.ylabel(r'$\rho$')
         title = r'Plot of $\rho$ vs. $x$ for $\bar{\rho}=$' + str(self.rho_bar) \
@@ -119,15 +120,28 @@ class TrafficFlow:
         plt.show()
 
     # Returns the analytic expectation for the characteristic speed as well as
-    # Returns the analytic expectation for the characteristic speed as well as the numerical calculation for the characteristic speed.the numerical calculation for the characteristic speed.
+    # the numerical calculation for the characteristic speed.the numerical
+    # calculation for the characteristic speed.
     def get_characteristic_speed(self):
-        analytic_speed = -self.u_max*(1-(2*self.rho_bar)/(self.rho_max))*np.sign(self.delta_rho)
+        direction = -1
+        i = 1
+        while(True):
+            x_pos_of_next_max = self.x_vec[np.where(self.rho_mat[i] == np.amax(self.rho_mat[i]))[0][0]]
+            if x_pos_of_next_max > self.x_center:
+                direction = 1
+                break
+            elif x_pos_of_next_max > self.x_center:
+                break
+            i+=1
+        analytic_speed = self.u_max*(1-(2*self.rho_bar)/(self.rho_max))*direction
+
         total_change_in_x = 0
         total_change_in_t = 0
+
         for i in range(len(self.rho_mat) - 1):
             curr_max = np.where(self.rho_mat[i] == np.amax(self.rho_mat[i]))[0][0]
             next_max = np.where(self.rho_mat[i+1] == np.amax(self.rho_mat[i+1]))[0][0]
-            if np.sign(self.delta_rho) > 0:
+            if direction == -1:
                 # didn't wrap
                 if self.x_vec[next_max] <= self.x_vec[curr_max]:
                     total_change_in_x += self.x_vec[next_max] - self.x_vec[curr_max]
@@ -187,7 +201,6 @@ class TrafficFlow:
 # numerical characteristic speed. Creates a model of cars moving in this
 # traffic flow and graphs the motion of these cars.
 def main():
-    print(sys.argv)
     rho_bar = 0.5 if len(sys.argv) <= 1 else float(sys.argv[1])
     delta_rho = 0.1 if len(sys.argv) <= 2 else float(sys.argv[2])
     N = 99 if len(sys.argv) <= 3 else int(sys.argv[3])
@@ -200,8 +213,8 @@ def main():
     print("analytic_speed: " + str(analytic_speed))
     print("num_speed: " + str(num_speed))
     flow.graph_rho(5)
-    flow.model_cars(5, 0.3)
-    flow.graph_cars()
+    # flow.model_cars(5, 0.3)
+    # flow.graph_cars()
 
 
 if __name__ == "__main__":
